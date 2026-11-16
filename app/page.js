@@ -46,8 +46,8 @@ export default function HomePage() {
   }
   const quiz=data?.quiz;const solved=Boolean(data?.progress?.solved);
   return <main className="site-shell">
-    <header className="topbar"><Link href="/" className="brand-mark">수수께끼 상영관</Link></header>
-    <section className="hero"><p className="eyebrow">THE CHRISTMAS SPECIAL</p><h1>오늘의 수수께끼</h1><p className="hero-copy">크리스마스의 작은 수수께끼가 상영 중입니다.</p><div className="hero-rule"/></section>
+    <header className="topbar"><Link href="/" className="brand-mark">THE FILM ARCH!VE</Link></header>
+    <section className="hero"><p className="eyebrow">THE CHRISTMAS SPECIAL</p><h1>TODAY'S QUIZ</h1><p className="hero-copy">오늘의 필름을 열람하시겠습니까?</p><div className="hero-rule"/></section>
     <section className="quiz-wrap">{loading?<div className="paper-card empty-card"><div className="loader"/><p>상영 준비 중이에요.</p></div>:!quiz?<div className="paper-card empty-card"><Ticket className="empty-icon" size={28}/><p className="eyebrow">NOW SHOWING</p><h2>오늘의 퀴즈를 준비하고 있어요.</h2><p className="muted">관리자가 문제를 등록하면 이곳에서 바로 만날 수 있어요.</p></div>:<article className="paper-card quiz-card">
       <div className="quiz-meta"><span className="meta-label">오늘의 퀴즈 {quiz.slot}</span><span className="time-label"><Clock3 size={14}/>{quiz.timeRange}</span></div><div className="thin-rule"/>
       {quiz.image_url&&<img className="question-image" src={quiz.image_url} alt="퀴즈 참고 이미지"/>}
@@ -58,7 +58,7 @@ export default function HomePage() {
       </form>}
       <div className="card-footnote"><span>오답 횟수 {data?.progress?.wrongCount??0}회</span><span>힌트는 2회 오답 후 공개</span></div>
     </article>}</section>
-    <footer className="site-footer"><span>THE CHRISTMAS SPECIAL</span><Link href="/admin"><LockKeyhole size={12}/> 관리자</Link></footer>
+    <footer className="site-footer"><span>ⓒ胡桃劇場</span><Link href="/admin"><LockKeyhole size={12}/> 관리자</Link></footer>
     {notice&&<div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&setNotice(null)}><section className={`result-modal ${notice.type}`} role="dialog" aria-modal="true"><button className="modal-close" onClick={()=>setNotice(null)}>×</button><p className="eyebrow">THE RESULT</p><h2>{notice.title}</h2><p className="modal-message">{notice.message}</p>{notice.hint&&<div className="hint-box"><span>힌트</span><p>{notice.hint}</p></div>}<button className="primary-button modal-button" onClick={()=>setNotice(null)}>확인</button></section></div>}
   </main>;
 }
