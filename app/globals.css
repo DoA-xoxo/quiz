@@ -2,10 +2,10 @@
 
 @font-face{
   font-family:"DX Movie Subtitle";
-  src:url("/fonts/DXMSubtitlesM-KSCpc-EUC-H.ttf") format("truetype");
+  src:url("/fonts/DXMSubtitlesM-KSCpc-EUC-H.ttf?v=2") format("truetype");
   font-style:normal;
-  font-weight:400;
-  font-display:swap;
+  font-weight:100 900;
+  font-display:block;
 }
 
 :root{
