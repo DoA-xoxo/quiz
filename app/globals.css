@@ -11,18 +11,18 @@
 :root{
   --bg:#090909;
   --bg-soft:#111111;
-  --panel:#151413;
-  --panel-raised:#1d1a18;
-  --ink:#eee9df;
-  --ink-soft:#c8beb0;
-  --muted:#887e73;
-  --line:#39322d;
-  --line-bright:#665044;
-  --wine:#8d3438;
-  --wine-dark:#64252c;
-  --rust:#a64c2f;
-  --amber:#c18a56;
-  --paper:#e8dfd1;
+  --panel:#111111;
+  --panel-raised:#171717;
+  --ink:#ffffff;
+  --ink-soft:#d7d7d7;
+  --muted:#929292;
+  --line:#303030;
+  --line-bright:#5b2837;
+  --wine:#842b43;
+  --wine-dark:#5d1e30;
+  --rust:#96364e;
+  --amber:#a33b56;
+  --paper:#ffffff;
 }
 *{box-sizing:border-box}
 html,body{min-height:100%;margin:0}
@@ -32,7 +32,7 @@ body{
   isolation:isolate;
   overflow-x:hidden;
   background:
-    radial-gradient(ellipse at 50% 0%,#241b18 0%,#11100f 42%,#080808 100%);
+    radial-gradient(ellipse at 50% 0%,#111111 0%,#0b0b0b 42%,#080808 100%);
   color:var(--ink);
   font-family:"DM Sans","Noto Serif KR",sans-serif;
 }
@@ -59,70 +59,67 @@ a{color:inherit;text-decoration:none}
   background:linear-gradient(90deg,var(--rust),transparent);
 }
 .brand-mark{
-  color:#e7d6c1;font:600 16px "DM Mono",monospace;
-  letter-spacing:.16em;text-shadow:0 0 20px #b75a3a33;
+  color:#ffffff;font:600 16px "DM Mono",monospace;
+  letter-spacing:.16em;text-shadow:0 0 20px #96364e33;
 }
 .hero{text-align:center;padding:62px 10px 32px}
 .eyebrow{
-  margin:0 0 13px;color:#bd8a5c;
+  margin:0 0 13px;color:#a33b56;
   font:500 10px "DM Mono",monospace;letter-spacing:.24em;
 }
 .hero h1,.admin-header h1,.admin-login-card h1{
-  margin:0;color:#eee5d8;
+  margin:0;color:#ffffff;
   font:500 clamp(29px,5vw,39px)/1.35 "Noto Serif KR",serif;
   letter-spacing:.025em;
 }
-.hero-copy{margin:11px 0 0;color:#a89b8d;font:italic 500 13px "DX Movie Subtitle","Malgun Gothic",sans-serif;letter-spacing:-.025em;text-shadow:0 1px 4px #000}
+.hero-copy{margin:11px 0 0;color:#c8c8c8;font:italic 500 13px "DX Movie Subtitle","Malgun Gothic",sans-serif;letter-spacing:-.025em;text-shadow:0 1px 4px #000}
 .hero-rule{
   width:180px;height:1px;margin:25px auto 0;
-  background:linear-gradient(90deg,transparent,#9d7653,transparent);
+  background:linear-gradient(90deg,transparent,#96364e,transparent);
   position:relative;
 }
 .hero-rule:after{
   content:"✳";position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);
-  padding:0 11px;background:#171312;color:#b9875c;font-size:10px;
+  padding:0 11px;background:#111111;color:#a33b56;font-size:10px;
 }
 .quiz-wrap{width:min(100%,680px);margin:auto;position:relative}
 .paper-card{
-  position:relative;background:linear-gradient(155deg,#191716,#100f0e 72%);
-  border:1px solid #584438;
+  position:relative;background:linear-gradient(155deg,#141414,#090909 72%);
+  border:1px solid #552637;
   box-shadow:0 20px 65px #0009,inset 0 0 45px #0005;
 }
 .quiz-card{
   overflow:hidden;
   padding:38px clamp(42px,7vw,66px);
-  border-color:#73533b;
+  border-color:#70263d;
   background:
     linear-gradient(90deg,#080808 0 27px,transparent 27px calc(100% - 27px),#080808 calc(100% - 27px)),
-    linear-gradient(155deg,#191716,#100f0e 72%);
+    linear-gradient(155deg,#101010,#080808 72%);
 }
-/* Portrait 35mm film: sprocket holes run down both vertical edges. */
+/* Rounded 35mm film perforations with neutral monochrome rails. */
 .quiz-card:before,.quiz-card:after{
   content:"";
   position:absolute;
   top:0;bottom:0;width:22px;z-index:2;
   pointer-events:none;
   background:
-    repeating-linear-gradient(180deg,
-      #d7d0c4 0 15px,
-      #a9a094 15px 17px,
-      transparent 17px 42px
-    ) center 9px / 12px 100% no-repeat,
-    linear-gradient(90deg,#090909,#211a16 48%,#090909);
-  box-shadow:inset 0 0 0 1px #8c6343,0 0 12px #0008;
+    radial-gradient(ellipse 5px 7px, transparent 94%, #ffffff 100%)
+      center 10px / 12px 42px repeat-y,
+    linear-gradient(90deg,#080808,#202020 48%,#080808);
+  box-shadow:inset 0 0 0 1px #555555,0 0 12px #0008;
 }
-.quiz-card:before{left:0;border-right:1px solid #8c6343}
-.quiz-card:after{right:0;border-left:1px solid #8c6343}
+.quiz-card:before{left:0;border-right:1px solid #555555}
+.quiz-card:after{right:0;border-left:1px solid #555555}
 .quiz-meta{
   display:flex;justify-content:center;gap:15px;flex-wrap:wrap;
-  color:#d6b58b;font:500 12px "DM Mono",monospace;letter-spacing:.04em;
+  color:#ffffff;font:500 12px "DM Mono",monospace;letter-spacing:.04em;
 }
-.time-label{display:flex;align-items:center;gap:5px;color:#a99a89}
-.thin-rule{height:1px;background:#574235;margin:22px 0 29px}
+.time-label{display:flex;align-items:center;gap:5px;color:#bcbcbc}
+.thin-rule{height:1px;background:#552637;margin:22px 0 29px}
 .question-image{
   display:block;max-width:100%;max-height:270px;object-fit:contain;
   margin:0 auto 23px;padding:4px;background:#0a0909;
-  border:1px solid #8c6746;box-shadow:0 8px 28px #0009;
+  border:1px solid #8d3049;box-shadow:0 8px 28px #0009;
 }
 .question-kicker{
   text-align:center;color:#b98558;
@@ -130,53 +127,53 @@ a{color:inherit;text-decoration:none}
 }
 .question-title{
   text-align:center;white-space:pre-wrap;max-width:560px;
-  margin:0 auto 28px;color:#f4f1eb;
+  margin:0 auto 28px;color:#ffffff;
   font:italic 500 clamp(19px,3.8vw,23px)/1.75 "DX Movie Subtitle","Malgun Gothic",sans-serif;
   letter-spacing:-.035em;
   text-shadow:0 2px 5px #000,0 0 12px #0009;
 }
 .answer-form{width:min(100%,430px);margin:auto}
 .answer-input,.admin-input,.admin-textarea,.date-input{
-  width:100%;padding:12px 13px;border:1px solid #57473a;border-radius:2px;
-  background:#201c19;color:#eee6d9;outline:none;
+  width:100%;padding:12px 13px;border:1px solid #4a4a4a;border-radius:2px;
+  background:#171717;color:#ffffff;outline:none;
 }
 .answer-input{text-align:center;font:italic 500 14px "DX Movie Subtitle","Malgun Gothic",sans-serif;letter-spacing:-.025em}
 .answer-input::placeholder{font:italic 400 13px "DX Movie Subtitle","Malgun Gothic",sans-serif}
-.answer-input::placeholder,.admin-input::placeholder,.admin-textarea::placeholder{color:#85786b}
+.answer-input::placeholder,.admin-input::placeholder,.admin-textarea::placeholder{color:#929292}
 .answer-input:focus,.admin-input:focus,.admin-textarea:focus,.date-input:focus{
-  border-color:#b27d4e;box-shadow:0 0 0 2px #b27d4e20;
+  border-color:#a33b56;box-shadow:0 0 0 2px #a33b5620;
 }
 .choice-list{display:grid;gap:9px}
 .choice-option{
   display:flex;align-items:center;gap:12px;padding:13px 14px;
-  border:1px solid #514237;border-radius:2px;background:#1d1917;
-  color:#e5dbce;font:14px "Noto Serif KR",serif;
+  border:1px solid #3d3d3d;border-radius:2px;background:#1d1917;
+  color:#eeeeee;font:14px "Noto Serif KR",serif;
   transition:background .16s,border-color .16s,transform .16s;
 }
-.choice-option:hover{border-color:#9c704b;background:#28201c;transform:translateY(-1px)}
-.choice-option.selected{border-color:#b47c52;background:#33231f}
+.choice-option:hover{border-color:#96364e;background:#1d1d1d;transform:translateY(-1px)}
+.choice-option.selected{border-color:#a33b56;background:#25151b}
 .choice-option input{position:absolute;opacity:0}
-.choice-dot{width:15px;height:15px;flex:none;border:1px solid #a98768;border-radius:50%}
-.choice-option.selected .choice-dot{border:4px solid #c58d5c}
+.choice-dot{width:15px;height:15px;flex:none;border:1px solid #bcbcbc;border-radius:50%}
+.choice-option.selected .choice-dot{border:4px solid #a33b56}
 .primary-button{
   display:inline-flex;align-items:center;justify-content:center;min-height:46px;
-  padding:0 23px;border:1px solid #a35d40;border-radius:2px;
-  background:linear-gradient(180deg,#8e3b37,#69272c);color:#f7eadd;
+  padding:0 23px;border:1px solid #96364e;border-radius:2px;
+  background:linear-gradient(180deg,#842b43,#5d1e30);color:#ffffff;
   font:500 13px "Noto Serif KR",serif;letter-spacing:.04em;
   transition:background .18s,transform .18s,border-color .18s;
 }
-.primary-button:hover{background:linear-gradient(180deg,#a34a3e,#792d31);border-color:#c17d55;transform:translateY(-1px)}
+.primary-button:hover{background:linear-gradient(180deg,#a33b56,#6d2038);border-color:#b44b66;transform:translateY(-1px)}
 .primary-button:active{transform:translateY(1px)}
 .primary-button:disabled{opacity:.45;cursor:not-allowed;transform:none}
 .submit-button{width:100%;margin-top:18px}
 .submit-button{font:500 13px "DX Movie Subtitle","Malgun Gothic",sans-serif;font-style:normal;letter-spacing:-.02em}
 .card-footnote{
   display:flex;justify-content:space-between;gap:12px;margin-top:25px;padding-top:14px;
-  border-top:1px solid #514034;color:#998979;font:11px "DM Mono",monospace;
+  border-top:1px solid #552637;color:#b0b0b0;font:11px "DM Mono",monospace;
 }
 .solved-panel,.empty-card{
   display:grid;justify-items:center;text-align:center;gap:10px;padding:25px;
-  background:#211b18;border:1px solid #69503b;color:#e5c18f;
+  background:#121212;border:1px solid #552637;color:#ffffff;
   font-family:"DX Movie Subtitle","Malgun Gothic",sans-serif;
 }
 /* Explicitly apply the locally hosted subtitle font to every solved-state line. */
@@ -184,85 +181,85 @@ a{color:inherit;text-decoration:none}
   font-family:"DX Movie Subtitle","Malgun Gothic",sans-serif !important;
   font-style:normal;
 }
-.solved-panel span,.muted{color:#a99a89;font-size:12px;font-family:"DX Movie Subtitle","Malgun Gothic",sans-serif}
+.solved-panel span,.muted{color:#bcbcbc;font-size:12px;font-family:"DX Movie Subtitle","Malgun Gothic",sans-serif}
 .empty-card{min-height:270px;align-content:center;padding:35px 20px}
-.empty-card h2{margin:0;color:#e9dfd1;font:500 19px "DX Movie Subtitle","Malgun Gothic",sans-serif}
-.empty-icon{color:#bb8656}
+.empty-card h2{margin:0;color:#ffffff;font:500 19px "DX Movie Subtitle","Malgun Gothic",sans-serif}
+.empty-icon{color:#a33b56}
 .loader{
-  width:22px;height:22px;border:2px solid #4c3a2e;border-top-color:#c18a56;
+  width:22px;height:22px;border:2px solid #343434;border-top-color:#a33b56;
   border-radius:50%;animation:spin .8s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
 .site-footer{
   display:flex;justify-content:space-between;padding:34px 0 24px;
-  color:#8e7b68;font:500 9px "DM Mono",monospace;letter-spacing:.14em;
+  color:#999999;font:500 9px "DM Mono",monospace;letter-spacing:.14em;
 }
-.site-footer a{display:flex;align-items:center;gap:5px;color:#b79b7c;font-size:11px;letter-spacing:0}
+.site-footer a{display:flex;align-items:center;gap:5px;color:#ffffff;font-size:11px;letter-spacing:0}
 .modal-backdrop{
   position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:20px;
   background:#050505d9;backdrop-filter:blur(5px);
 }
 .result-modal{
   position:relative;width:min(100%,420px);padding:38px 28px 27px;text-align:center;
-  background:linear-gradient(150deg,#211b18,#12100f);
-  border:1px solid #98704b;box-shadow:0 22px 70px #000b;
+  background:linear-gradient(150deg,#121212,#12100f);
+  border:1px solid #8d3049;box-shadow:0 22px 70px #000b;
   font-family:"DX Movie Subtitle","Malgun Gothic",sans-serif;
 }
 .modal-close{
   position:absolute;right:12px;top:8px;border:0;background:none;
-  color:#a99a89;font-size:25px;
+  color:#bcbcbc;font-size:25px;
 }
-.result-modal h2{margin:0 0 10px;color:#f0e1ce;font:600 24px "DX Movie Subtitle","Malgun Gothic",sans-serif}
-.modal-message{color:#d0c1af;font:400 13px/1.8 "DX Movie Subtitle","Malgun Gothic",sans-serif}
-.hint-box{margin:18px 0;padding:13px;background:#2a201b;border:1px solid #715039}
-.hint-box span{font:600 12px "DX Movie Subtitle","Malgun Gothic",sans-serif;color:#d09b68}
-.hint-box p{color:#e4d7c7;font:400 13px/1.7 "DX Movie Subtitle","Malgun Gothic",sans-serif}
-.reward-block{display:grid;gap:7px;margin:20px 0;padding:16px;border-block:1px solid #574235}
-.reward-block strong{color:#d6aa78;font:700 25px "Noto Serif KR"}
-.reward-block span{font-size:12px;color:#a99a89}
+.result-modal h2{margin:0 0 10px;color:#ffffff;font:600 24px "DX Movie Subtitle","Malgun Gothic",sans-serif}
+.modal-message{color:#dedede;font:400 13px/1.8 "DX Movie Subtitle","Malgun Gothic",sans-serif}
+.hint-box{margin:18px 0;padding:13px;background:#1a1a1a;border:1px solid #70263d}
+.hint-box span{font:600 12px "DX Movie Subtitle","Malgun Gothic",sans-serif;color:#c45a73}
+.hint-box p{color:#eeeeee;font:400 13px/1.7 "DX Movie Subtitle","Malgun Gothic",sans-serif}
+.reward-block{display:grid;gap:7px;margin:20px 0;padding:16px;border-block:1px solid #552637}
+.reward-block strong{color:#ffffff;font:700 25px "Noto Serif KR"}
+.reward-block span{font-size:12px;color:#bcbcbc}
 
 /* Control room */
-.admin-shell{max-width:1000px;padding:28px 0;color:#eee6d9}
-.back-link{display:inline-block;margin-bottom:18px;color:#aa9279;font-size:12px}
+.admin-shell{max-width:1000px;padding:28px 0;color:#ffffff}
+.back-link{display:inline-block;margin-bottom:18px;color:#bcbcbc;font-size:12px}
 .admin-header{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}
-.admin-header h1,.admin-login-card h1{color:#eee5d8}
+.admin-header h1,.admin-login-card h1{color:#ffffff}
 .admin-panel{
   padding:clamp(18px,4vw,34px);
-  background:linear-gradient(155deg,#191716,#100f0e 72%);
-  border-color:#65503e;color:#e9dfd1;
+  background:linear-gradient(155deg,#101010,#080808 72%);
+  border-color:#552637;color:#ffffff;
 }
 .date-row{
   display:flex;align-items:center;gap:14px;padding-bottom:18px;
-  border-bottom:1px solid #493a30;
+  border-bottom:1px solid #444444;
 }
-.date-row label,.field-label{font-size:12px;font-weight:600;color:#d7c8b6}
+.date-row label,.field-label{font-size:12px;font-weight:600;color:#ffffff}
 .date-input{width:auto;color-scheme:dark}
-.admin-description{color:#9c8d7d;font-size:12px}
-.slot-editor{padding:22px 0;border-top:1px solid #493a30}
+.admin-description{color:#a0a0a0;font-size:12px}
+.slot-editor{padding:22px 0;border-top:1px solid #444444}
 .slot-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
-.slot-heading h2{display:inline;margin-left:10px;color:#ead8c0;font:600 17px "Noto Serif KR"}
-.slot-number,.slot-time{color:#bd8758;font:11px "DM Mono",monospace}
+.slot-heading h2{display:inline;margin-left:10px;color:#ffffff;font:600 17px "Noto Serif KR"}
+.slot-number,.slot-time{color:#a33b56;font:11px "DM Mono",monospace}
 .editor-grid{display:grid;grid-template-columns:minmax(0,1fr) 175px;gap:20px}
 .editor-main{display:grid;gap:11px}
 .field-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .admin-textarea{resize:vertical;min-height:75px}
 .upload-box{
   display:flex;min-height:120px;flex-direction:column;justify-content:center;align-items:center;gap:7px;
-  border:1px dashed #735b43;background:#1d1917;color:#c29464;font-size:12px;cursor:pointer;
+  border:1px dashed #70263d;background:#1d1917;color:#c29464;font-size:12px;cursor:pointer;
 }
 .upload-box input{display:none}
-.upload-box small{font-size:10px;color:#9b8b79}
+.upload-box small{font-size:10px;color:#a0a0a0}
 .uploaded-image img{width:100%;max-height:110px;object-fit:contain;border:1px solid #69513d}
 .uploaded-image button,.text-button{border:0;background:none;color:#c58a5d;font-size:11px}
 .status-message{color:#c4a274;font-size:12px}
 .save-row{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding-top:18px;border-top:1px solid #493a30;
+  padding-top:18px;border-top:1px solid #444444;
 }
-.admin-panel .muted{color:#9b8b79}
+.admin-panel .muted{color:#a0a0a0}
 .admin-login-card{
   width:min(100%,400px);margin:65px auto;padding:34px;text-align:center;
-  background:linear-gradient(155deg,#1c1917,#100e0d);border-color:#76583e;
+  background:linear-gradient(155deg,#111111,#100e0d);border-color:#552637;
 }
 .admin-login-card form{display:grid;gap:12px}
 .full-button{width:100%}
