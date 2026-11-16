@@ -45,7 +45,7 @@ export default function HomePage() {
         }catch{}
         setData(old=>old?{...old,progress:{...old.progress,solved:true}}:old);
         const reward=data.quiz.slot===3?20:10;
-        setNotice({type:"success",title:"정답이에요!",message:`퀴즈를 풀었어요. ${reward} 포인트 획득!<br />다음 상영 시간에 새로운 문제가 공개됩니다.`});
+        setNotice({type:"success",title:"정답이에요!",message:`퀴즈를 풀었어요. ${reward} 포인트 획득!\n다음 상영 시간에 새로운 문제가 공개됩니다.`});
       } else if(result.status==="wrong"){
         setData(old=>old?{...old,progress:{...old.progress,wrongCount:result.wrongCount}}:old);
         setNotice({type:"wrong",title:"아쉽지만 오답이에요",message:result.wrongCount>=2?"힌트를 확인하고 다시 도전해 보세요.":"다시 한 번 생각해 보세요!",hint:result.wrongCount>=2?result.hint:""});
