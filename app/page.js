@@ -10,13 +10,20 @@ export default function HomePage() {
   const [loading,setLoading]=useState(true);
   const [sending,setSending]=useState(false);
   const [notice,setNotice]=useState(null);
+  const solvedStorageKey="film-archive-solved-quizzes";
   const loadQuiz=useCallback(async(silent=false)=>{
     if(!silent)setLoading(true);
     try {
       const response=await fetch("/api/quiz",{cache:"no-store"});
       const result=await response.json();
       if(!response.ok)throw new Error(result.error||"퀴즈를 불러오지 못했어요.");
-      setData(old=>old&&old.quiz?.id&&old.quiz.id===result.quiz?.id?{...result,progress:old.progress}:result);
+      let solvedIds=[];
+      try{solvedIds=JSON.parse(localStorage.getItem(solvedStorageKey)||"[]");}catch{}
+      const alreadySolved=Boolean(result.quiz?.id&&solvedIds.includes(String(result.quiz.id)));
+      setData(old=>{
+        const sameQuiz=old?.quiz?.id&&old.quiz.id===result.quiz?.id;
+        return {...result,progress:{...(sameQuiz?old.progress:{}),solved:alreadySolved||(sameQuiz&&Boolean(old.progress?.solved))}};
+      });
     } catch(error){setNotice({type:"error",title:"잠시 문제가 생겼어요",message:error.message});}
     finally{if(!silent)setLoading(false);}
   },[]);
@@ -31,8 +38,14 @@ export default function HomePage() {
       const response=await fetch("/api/quiz/answer",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({quizId:data.quiz.id,answer:value,wrongCount:data.progress?.wrongCount??0})});
       const result=await response.json();if(!response.ok)throw new Error(result.error||"답안을 제출하지 못했어요.");
       if(result.status==="correct"){
+        try{
+          const solvedIds=JSON.parse(localStorage.getItem(solvedStorageKey)||"[]");
+          if(!solvedIds.includes(String(data.quiz.id)))solvedIds.push(String(data.quiz.id));
+          localStorage.setItem(solvedStorageKey,JSON.stringify(solvedIds));
+        }catch{}
         setData(old=>old?{...old,progress:{...old.progress,solved:true}}:old);
-        setNotice({type:"success",title:"정답이에요!",message:"수수께끼를 풀었어요. 다음 상영 시간에 새로운 문제가 공개됩니다."});
+        const reward=data.quiz.slot===3?20:10;
+        setNotice({type:"success",title:"정답이에요!",message:`수수께끼를 풀었어요. ${reward} 포인트 획득! 다음 상영 시간에 새로운 문제가 공개됩니다.`});
       } else if(result.status==="wrong"){
         setData(old=>old?{...old,progress:{...old.progress,wrongCount:result.wrongCount}}:old);
         setNotice({type:"wrong",title:"아쉽지만 오답이에요",message:result.wrongCount>=2?"힌트를 확인하고 다시 도전해 보세요.":"다시 한 번 생각해 보세요!",hint:result.wrongCount>=2?result.hint:""});
@@ -52,7 +65,7 @@ export default function HomePage() {
       <div className="quiz-meta"><span className="meta-label">오늘의 퀴즈 {quiz.slot}</span><span className="time-label"><Clock3 size={14}/>{quiz.timeRange}</span></div><div className="thin-rule"/>
       {quiz.image_url&&<img className="question-image" src={quiz.image_url} alt="퀴즈 참고 이미지"/>}
       <p className="question-kicker">QUESTION {String(quiz.slot).padStart(2,"0")}</p><h2 className="question-title">{quiz.question}</h2>
-      {solved?<div className="solved-panel"><Sparkles size={20}/><strong>정답을 맞혔어요!</strong><span>다음 상영 시간에 새로운 문제가 공개됩니다.</span></div>:<form onSubmit={submitAnswer} className="answer-form">
+      {solved?<div className="solved-panel"><Sparkles size={20}/><strong>정답을 맞혔어요!</strong><span>{quiz.slot===3?20:10} 포인트 획득!</span><span>다음 상영 시간에 새로운 문제가 공개됩니다.</span></div>:<form onSubmit={submitAnswer} className="answer-form">
         {quiz.answer_type==="choice"?<div className="choice-list">{(quiz.options||[]).map((option,index)=><label className={`choice-option ${selected===option?"selected":""}`} key={`${option}-${index}`}><input type="radio" name="choice" value={option} checked={selected===option} onChange={()=>setSelected(option)}/><span className="choice-dot"/><span>{option}</span></label>)}</div>:<input className="answer-input" value={answer} onChange={e=>setAnswer(e.target.value)} placeholder="정답을 입력해 주세요." autoComplete="off"/>}
         <button className="primary-button submit-button" type="submit" disabled={sending||!(quiz.answer_type==="choice"?selected:answer.trim())}>{sending?"제출 중...":"정답 제출하기"}</button>
       </form>}
