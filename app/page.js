@@ -78,7 +78,7 @@ export default function HomePage() {
         <button className="primary-button submit-button" type="submit" disabled={sending||!(quiz.answer_type==="choice"?selected:answer.trim())}>{sending?"제출 중...":"정답 제출하기"}</button>
       </form>
 )}
-      <div className="card-footnote"><span>오답 횟수 {data?.progress?.wrongCount??0}회</span><span>힌트는 2 회 오답 후 공개 됩니다.</span></div>
+      <div className="card-footnote"><span>오답 횟수 {data?.progress?.wrongCount??0} 회</span><span>힌트는 2 회 오답 후 공개 됩니다.</span></div>
     </article>}</section>
     <footer className="site-footer"><span>ⓒ胡桃劇場</span><Link href="/admin"><LockKeyhole size={12}/> 관리자</Link></footer>
     {notice&&<div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&setNotice(null)}><section className={`result-modal ${notice.type}`} role="dialog" aria-modal="true"><button className="modal-close" onClick={()=>setNotice(null)}>×</button><p className="eyebrow">THE RESULT</p><h2>{notice.title}</h2><p className="modal-message">{notice.message}</p>{notice.hint&&<div className="hint-box"><span>힌트</span><p>{notice.hint}</p></div>}<button className="primary-button modal-button" onClick={()=>setNotice(null)}>확인</button></section></div>}
