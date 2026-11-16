@@ -17,11 +17,11 @@
   --ink-soft:#d7d7d7;
   --muted:#929292;
   --line:#303030;
-  --line-bright:#5b2837;
-  --wine:#842b43;
-  --wine-dark:#5d1e30;
-  --rust:#96364e;
-  --amber:#a33b56;
+  --line-bright:#6b3444;
+  --wine:#A64E61;
+  --wine-dark:#853447;
+  --rust:#A64E61;
+  --amber:#B95D70;
   --paper:#ffffff;
 }
 *{box-sizing:border-box}
@@ -56,15 +56,15 @@ a{color:inherit;text-decoration:none}
 }
 .topbar:after{
   content:"";position:absolute;left:0;bottom:-1px;width:110px;height:1px;
-  background:linear-gradient(90deg,var(--rust),transparent);
+  background:var(--crimson);
 }
 .brand-mark{
-  color:#ffffff;font:600 16px "DM Mono",monospace;
-  letter-spacing:.16em;text-shadow:0 0 20px #96364e33;
+  color:var(--crimson);font:600 16px "DM Mono",monospace;
+  letter-spacing:.16em;text-shadow:0 0 20px #A64E6133;
 }
 .hero{text-align:center;padding:62px 10px 32px}
 .eyebrow{
-  margin:0 0 13px;color:#a33b56;
+  margin:0 0 13px;color:var(--crimson);
   font:500 10px "DM Mono",monospace;letter-spacing:.24em;
 }
 .hero h1,.admin-header h1,.admin-login-card h1{
@@ -75,23 +75,23 @@ a{color:inherit;text-decoration:none}
 .hero-copy{margin:11px 0 0;color:#c8c8c8;font:italic 500 13px "DX Movie Subtitle","Malgun Gothic",sans-serif;letter-spacing:-.025em;text-shadow:0 1px 4px #000}
 .hero-rule{
   width:180px;height:1px;margin:25px auto 0;
-  background:linear-gradient(90deg,transparent,#96364e,transparent);
+  background:var(--crimson);
   position:relative;
 }
 .hero-rule:after{
   content:"✶";position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);
-  padding:0 11px;background:#111111;color:#a33b56;font-size:10px;
+  padding:0 11px;background:#111111;color:var(--crimson);font-size:10px;
 }
 .quiz-wrap{width:min(100%,680px);margin:auto;position:relative}
 .paper-card{
   position:relative;background:linear-gradient(155deg,#141414,#090909 72%);
-  border:1px solid #552637;
+  border:1px solid #59313C;
   box-shadow:0 20px 65px #0009,inset 0 0 45px #0005;
 }
 .quiz-card{
   overflow:hidden;
   padding:38px clamp(42px,7vw,66px);
-  border-color:#70263d;
+  border-color:#713343;
   background:
     linear-gradient(90deg,#080808 0 27px,transparent 27px calc(100% - 27px),#080808 calc(100% - 27px)),
     linear-gradient(155deg,#101010,#080808 72%);
@@ -103,8 +103,8 @@ a{color:inherit;text-decoration:none}
   top:0;bottom:0;width:22px;z-index:2;
   pointer-events:none;
   background:
-    radial-gradient(ellipse 5px 7px, transparent 94%, #ffffff 100%)
-      center 10px / 12px 42px repeat-y,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='42' viewBox='0 0 22 42'%3E%3Cdefs%3E%3Cmask id='m'%3E%3Crect width='22' height='42' fill='white'/%3E%3Crect x='5' y='10' width='12' height='15' rx='2.5' fill='black'/%3E%3C/mask%3E%3C/defs%3E%3Crect width='22' height='42' fill='%23171717' mask='url(%23m)'/%3E%3Crect x='4.5' y='9.5' width='13' height='16' rx='3' fill='none' stroke='%235b5b5b' stroke-width='.8' opacity='.8'/%3E%3C/svg%3E")
+      center 0 / 22px 42px repeat-y,
     linear-gradient(90deg,#080808,#202020 48%,#080808);
   box-shadow:inset 0 0 0 1px #555555,0 0 12px #0008;
 }
@@ -115,14 +115,15 @@ a{color:inherit;text-decoration:none}
   color:#ffffff;font:500 12px "DM Mono",monospace;letter-spacing:.04em;
 }
 .time-label{display:flex;align-items:center;gap:5px;color:#bcbcbc}
-.thin-rule{height:1px;background:#552637;margin:22px 0 29px}
+.meta-label{color:var(--crimson);}
+.thin-rule{height:1px;background:#59313C;margin:22px 0 29px}
 .question-image{
   display:block;max-width:100%;max-height:270px;object-fit:contain;
   margin:0 auto 23px;padding:4px;background:#0a0909;
-  border:1px solid #8d3049;box-shadow:0 8px 28px #0009;
+  border:1px solid #A64E61;box-shadow:0 8px 28px #0009;
 }
 .question-kicker{
-  text-align:center;color:#b98558;
+  text-align:center;color:var(--crimson);
   font:500 10px "DM Mono",monospace;letter-spacing:.23em;
 }
 .question-title{
@@ -141,7 +142,7 @@ a{color:inherit;text-decoration:none}
 .answer-input::placeholder{font:italic 400 13px "DX Movie Subtitle","Malgun Gothic",sans-serif}
 .answer-input::placeholder,.admin-input::placeholder,.admin-textarea::placeholder{color:#929292}
 .answer-input:focus,.admin-input:focus,.admin-textarea:focus,.date-input:focus{
-  border-color:#a33b56;box-shadow:0 0 0 2px #a33b5620;
+  border-color:var(--crimson);box-shadow:0 0 0 2px #A64E6120;
 }
 .choice-list{display:grid;gap:9px}
 .choice-option{
@@ -150,30 +151,30 @@ a{color:inherit;text-decoration:none}
   color:#eeeeee;font:14px "Noto Serif KR",serif;
   transition:background .16s,border-color .16s,transform .16s;
 }
-.choice-option:hover{border-color:#96364e;background:#1d1d1d;transform:translateY(-1px)}
-.choice-option.selected{border-color:#a33b56;background:#25151b}
+.choice-option:hover{border-color:#A64E61;background:#1d1d1d;transform:translateY(-1px)}
+.choice-option.selected{border-color:var(--crimson);background:#25151b}
 .choice-option input{position:absolute;opacity:0}
 .choice-dot{width:15px;height:15px;flex:none;border:1px solid #bcbcbc;border-radius:50%}
-.choice-option.selected .choice-dot{border:4px solid #a33b56}
+.choice-option.selected .choice-dot{border:4px solid #A64E61}
 .primary-button{
   display:inline-flex;align-items:center;justify-content:center;min-height:46px;
-  padding:0 23px;border:1px solid #96364e;border-radius:2px;
-  background:linear-gradient(180deg,#842b43,#5d1e30);color:#ffffff;
+  padding:0 23px;border:1px solid #A64E61;border-radius:2px;
+  background:var(--crimson);color:#ffffff;
   font:500 13px "Noto Serif KR",serif;letter-spacing:.04em;
   transition:background .18s,transform .18s,border-color .18s;
 }
-.primary-button:hover{background:linear-gradient(180deg,#a33b56,#6d2038);border-color:#b44b66;transform:translateY(-1px)}
+.primary-button:hover{background:linear-gradient(180deg,#A64E61,#6d2038);border-color:#B95D70;transform:translateY(-1px)}
 .primary-button:active{transform:translateY(1px)}
 .primary-button:disabled{opacity:.45;cursor:not-allowed;transform:none}
 .submit-button{width:100%;margin-top:18px}
 .submit-button{font:500 13px "DX Movie Subtitle","Malgun Gothic",sans-serif;font-style:normal;letter-spacing:-.02em}
 .card-footnote{
   display:flex;justify-content:space-between;gap:12px;margin-top:25px;padding-top:14px;
-  border-top:1px solid #552637;color:#b0b0b0;font:11px "DM Mono",monospace;
+  border-top:1px solid #59313C;color:#b0b0b0;font:11px "DM Mono",monospace;
 }
 .solved-panel,.empty-card{
   display:grid;justify-items:center;text-align:center;gap:10px;padding:25px;
-  background:#121212;border:1px solid #552637;color:#ffffff;
+  background:#121212;border:1px solid #59313C;color:#ffffff;
   font-family:"DX Movie Subtitle","Malgun Gothic",sans-serif;
 }
 /* Explicitly apply the locally hosted subtitle font to every solved-state line. */
@@ -184,9 +185,9 @@ a{color:inherit;text-decoration:none}
 .solved-panel span,.muted{color:#bcbcbc;font-size:12px;font-family:"DX Movie Subtitle","Malgun Gothic",sans-serif}
 .empty-card{min-height:270px;align-content:center;padding:35px 20px}
 .empty-card h2{margin:0;color:#ffffff;font:500 19px "DX Movie Subtitle","Malgun Gothic",sans-serif}
-.empty-icon{color:#a33b56}
+.empty-icon{color:var(--crimson)}
 .loader{
-  width:22px;height:22px;border:2px solid #343434;border-top-color:#a33b56;
+  width:22px;height:22px;border:2px solid #343434;border-top-color:var(--crimson);
   border-radius:50%;animation:spin .8s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -202,7 +203,7 @@ a{color:inherit;text-decoration:none}
 .result-modal{
   position:relative;width:min(100%,420px);padding:38px 28px 27px;text-align:center;
   background:linear-gradient(150deg,#121212,#12100f);
-  border:1px solid #8d3049;box-shadow:0 22px 70px #000b;
+  border:1px solid #A64E61;box-shadow:0 22px 70px #000b;
   font-family:"DX Movie Subtitle","Malgun Gothic",sans-serif;
 }
 .modal-close{
@@ -211,10 +212,10 @@ a{color:inherit;text-decoration:none}
 }
 .result-modal h2{margin:0 0 10px;color:#ffffff;font:600 24px "DX Movie Subtitle","Malgun Gothic",sans-serif}
 .modal-message{color:#dedede;font:400 13px/1.8 "DX Movie Subtitle","Malgun Gothic",sans-serif}
-.hint-box{margin:18px 0;padding:13px;background:#1a1a1a;border:1px solid #70263d}
+.hint-box{margin:18px 0;padding:13px;background:#1a1a1a;border:1px solid #713343}
 .hint-box span{font:600 12px "DX Movie Subtitle","Malgun Gothic",sans-serif;color:#c45a73}
 .hint-box p{color:#eeeeee;font:400 13px/1.7 "DX Movie Subtitle","Malgun Gothic",sans-serif}
-.reward-block{display:grid;gap:7px;margin:20px 0;padding:16px;border-block:1px solid #552637}
+.reward-block{display:grid;gap:7px;margin:20px 0;padding:16px;border-block:1px solid #59313C}
 .reward-block strong{color:#ffffff;font:700 25px "Noto Serif KR"}
 .reward-block span{font-size:12px;color:#bcbcbc}
 
@@ -226,7 +227,7 @@ a{color:inherit;text-decoration:none}
 .admin-panel{
   padding:clamp(18px,4vw,34px);
   background:linear-gradient(155deg,#101010,#080808 72%);
-  border-color:#552637;color:#ffffff;
+  border-color:#59313C;color:#ffffff;
 }
 .date-row{
   display:flex;align-items:center;gap:14px;padding-bottom:18px;
@@ -238,18 +239,18 @@ a{color:inherit;text-decoration:none}
 .slot-editor{padding:22px 0;border-top:1px solid #444444}
 .slot-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
 .slot-heading h2{display:inline;margin-left:10px;color:#ffffff;font:600 17px "Noto Serif KR"}
-.slot-number,.slot-time{color:#a33b56;font:11px "DM Mono",monospace}
+.slot-number,.slot-time{color:var(--crimson);font:11px "DM Mono",monospace}
 .editor-grid{display:grid;grid-template-columns:minmax(0,1fr) 175px;gap:20px}
 .editor-main{display:grid;gap:11px}
 .field-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .admin-textarea{resize:vertical;min-height:75px}
 .upload-box{
   display:flex;min-height:120px;flex-direction:column;justify-content:center;align-items:center;gap:7px;
-  border:1px dashed #70263d;background:#1d1917;color:#c29464;font-size:12px;cursor:pointer;
+  border:1px dashed #713343;background:#1d1917;color:#B95D70;font-size:12px;cursor:pointer;
 }
 .upload-box input{display:none}
 .upload-box small{font-size:10px;color:#a0a0a0}
-.uploaded-image img{width:100%;max-height:110px;object-fit:contain;border:1px solid #69513d}
+.uploaded-image img{width:100%;max-height:110px;object-fit:contain;border:1px solid #713343}
 .uploaded-image button,.text-button{border:0;background:none;color:#c58a5d;font-size:11px}
 .status-message{color:#c4a274;font-size:12px}
 .save-row{
@@ -259,7 +260,7 @@ a{color:inherit;text-decoration:none}
 .admin-panel .muted{color:#a0a0a0}
 .admin-login-card{
   width:min(100%,400px);margin:65px auto;padding:34px;text-align:center;
-  background:linear-gradient(155deg,#111111,#100e0d);border-color:#552637;
+  background:linear-gradient(155deg,#111111,#100e0d);border-color:#59313C;
 }
 .admin-login-card form{display:grid;gap:12px}
 .full-button{width:100%}
