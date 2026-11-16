@@ -18,11 +18,11 @@
   --muted:#929292;
   --line:#303030;
   --line-bright:#6b3444;
-  --crimson:#A64E61;
-  --wine:#A64E61;
+  --crimson:#81272e;
+  --wine:#81272e;
   --wine-dark:#853447;
-  --rust:#A64E61;
-  --amber:#B95D70;
+  --rust:#81272e;
+  --amber:#81272e;
   --paper:#ffffff;
 }
 *{box-sizing:border-box}
@@ -44,7 +44,7 @@ body:before{
   z-index:-1;
   pointer-events:none;
   opacity:.16;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='42' viewBox='0 0 22 42'%3E%3Crect width='22' height='42' fill='%23171717'/%3E%3Crect x='5' y='10' width='12' height='15' rx='2.5' fill='white'/%3E%3C/svg%3E");
   mix-blend-mode:screen;
 }
 button,input,textarea,select{font:inherit}
@@ -61,7 +61,7 @@ a{color:inherit;text-decoration:none}
 }
 .brand-mark{
   color:var(--crimson);font:600 16px "DM Mono",monospace;
-  letter-spacing:.16em;text-shadow:0 0 20px #A64E6133;
+  letter-spacing:.16em;text-shadow:0 0 20px #81272e33;
 }
 .hero{text-align:center;padding:62px 10px 32px}
 .eyebrow{
@@ -121,7 +121,7 @@ a{color:inherit;text-decoration:none}
 .question-image{
   display:block;max-width:100%;max-height:270px;object-fit:contain;
   margin:0 auto 23px;padding:4px;background:#0a0909;
-  border:1px solid #A64E61;box-shadow:0 8px 28px #0009;
+  border:1px solid #81272e;box-shadow:0 8px 28px #0009;
 }
 .question-kicker{
   text-align:center;color:var(--crimson);
@@ -143,7 +143,7 @@ a{color:inherit;text-decoration:none}
 .answer-input::placeholder{font:italic 400 13px "DX Movie Subtitle","Malgun Gothic",sans-serif}
 .answer-input::placeholder,.admin-input::placeholder,.admin-textarea::placeholder{color:#929292}
 .answer-input:focus,.admin-input:focus,.admin-textarea:focus,.date-input:focus{
-  border-color:var(--crimson);box-shadow:0 0 0 2px #A64E6120;
+  border-color:var(--crimson);box-shadow:0 0 0 2px #81272e20;
 }
 .choice-list{display:grid;gap:9px}
 .choice-option{
@@ -152,19 +152,19 @@ a{color:inherit;text-decoration:none}
   color:#eeeeee;font:14px "Noto Serif KR",serif;
   transition:background .16s,border-color .16s,transform .16s;
 }
-.choice-option:hover{border-color:#A64E61;background:#1d1d1d;transform:translateY(-1px)}
+.choice-option:hover{border-color:#81272e;background:#1d1d1d;transform:translateY(-1px)}
 .choice-option.selected{border-color:var(--crimson);background:#25151b}
 .choice-option input{position:absolute;opacity:0}
 .choice-dot{width:15px;height:15px;flex:none;border:1px solid #bcbcbc;border-radius:50%}
-.choice-option.selected .choice-dot{border:4px solid #A64E61}
+.choice-option.selected .choice-dot{border:4px solid #81272e}
 .primary-button{
   display:inline-flex;align-items:center;justify-content:center;min-height:46px;
-  padding:0 23px;border:1px solid #A64E61;border-radius:2px;
+  padding:0 23px;border:1px solid #81272e;border-radius:2px;
   background:var(--crimson);color:#ffffff;
   font:500 13px "Noto Serif KR",serif;letter-spacing:.04em;
   transition:background .18s,transform .18s,border-color .18s;
 }
-.primary-button:hover{background:linear-gradient(180deg,#A64E61,#6d2038);border-color:#B95D70;transform:translateY(-1px)}
+.primary-button:hover{background:linear-gradient(180deg,#81272e,#6d2038);border-color:#81272e;transform:translateY(-1px)}
 .primary-button:active{transform:translateY(1px)}
 .primary-button:disabled{opacity:.45;cursor:not-allowed;transform:none}
 .submit-button{width:100%;margin-top:18px}
@@ -204,7 +204,7 @@ a{color:inherit;text-decoration:none}
 .result-modal{
   position:relative;width:min(100%,420px);padding:38px 28px 27px;text-align:center;
   background:linear-gradient(150deg,#121212,#12100f);
-  border:1px solid #A64E61;box-shadow:0 22px 70px #000b;
+  border:1px solid #81272e;box-shadow:0 22px 70px #000b;
   font-family:"DX Movie Subtitle","Malgun Gothic",sans-serif;
 }
 .modal-close{
@@ -247,7 +247,7 @@ a{color:inherit;text-decoration:none}
 .admin-textarea{resize:vertical;min-height:75px}
 .upload-box{
   display:flex;min-height:120px;flex-direction:column;justify-content:center;align-items:center;gap:7px;
-  border:1px dashed #713343;background:#1d1917;color:#B95D70;font-size:12px;cursor:pointer;
+  border:1px dashed #713343;background:#1d1917;color:#81272e;font-size:12px;cursor:pointer;
 }
 .upload-box input{display:none}
 .upload-box small{font-size:10px;color:#a0a0a0}
