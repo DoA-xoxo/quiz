@@ -79,7 +79,7 @@ a{color:inherit;text-decoration:none}
   position:relative;
 }
 .hero-rule:after{
-  content:"✳";position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);
+  content:"✶";position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);
   padding:0 11px;background:#111111;color:#a33b56;font-size:10px;
 }
 .quiz-wrap{width:min(100%,680px);margin:auto;position:relative}
