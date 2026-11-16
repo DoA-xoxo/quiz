@@ -146,3 +146,59 @@ body{
   .paper-card{box-shadow:0 14px 38px #100b0a77,0 0 0 3px #d4b17b18,inset 0 0 0 4px #fff8e855}
   .site-footer{padding-top:28px}
 }
+
+
+/* Quiz screen: dark cinema film frame */
+.quiz-wrap:before,.quiz-wrap:after{content:none!important;display:none!important}
+.quiz-card.paper-card{
+  overflow:hidden;
+  background:linear-gradient(160deg,#211b1a 0%,#171313 55%,#211817 100%);
+  border:1px solid #8f6b46;
+  box-shadow:0 22px 65px #090606aa,0 0 0 4px #b58b5422,inset 0 0 35px #0008;
+  color:#f1dfc2;
+  padding-top:52px;
+  padding-bottom:42px;
+}
+.quiz-card:before,.quiz-card:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;
+  height:18px;
+  z-index:2;
+  background:
+    repeating-linear-gradient(90deg,#d0b17a 0 9px,transparent 9px 27px) center 5px/100% 8px repeat-x,
+    linear-gradient(180deg,#3b2922,#211715);
+  border-block:1px solid #8d6846;
+  pointer-events:none;
+}
+.quiz-card:before{top:0}
+.quiz-card:after{bottom:0}
+.quiz-card .quiz-meta{color:#e1c18c}
+.quiz-card .time-label{color:#bda58a}
+.quiz-card .thin-rule{background:#70543b}
+.quiz-card .question-kicker{color:#c5a06a}
+.quiz-card .question-title{color:#f3e5cf}
+.quiz-card .question-image{
+  border:4px solid #2b211d;
+  outline:1px solid #a78253;
+  box-shadow:0 8px 25px #0009;
+}
+.quiz-card .answer-input{
+  background:#29211e;color:#f4e7d3;border-color:#806143;
+}
+.quiz-card .answer-input::placeholder{color:#b6a18a}
+.quiz-card .choice-option{
+  background:#29211e;color:#f1dfc8;border-color:#66503c;
+}
+.quiz-card .choice-option:hover{background:#382923;border-color:#b48a57}
+.quiz-card .choice-option.selected{background:#45302a;border-color:#d0a56b}
+.quiz-card .choice-option.selected .choice-dot{border-color:#d0a56b}
+.quiz-card .solved-panel,.quiz-card .empty-card{
+  background:#29211e;border-color:#806143;color:#e7c38d;
+}
+.quiz-card .solved-panel span,.quiz-card .muted{color:#c1ad96}
+.quiz-card .card-footnote{border-color:#70543b;color:#bda58a}
+@media(max-width:640px){
+  .quiz-card.paper-card{padding-top:43px;padding-bottom:32px}
+  .quiz-card:before,.quiz-card:after{height:15px}
+}
