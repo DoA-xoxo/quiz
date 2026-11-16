@@ -16,7 +16,7 @@ export default function HomePage() {
       const response=await fetch("/api/quiz",{cache:"no-store"});
       const result=await response.json();
       if(!response.ok)throw new Error(result.error||"퀴즈를 불러오지 못했어요.");
-      setData(old=>old?.quiz?.id===result.quiz?.id?{...result,progress:old.progress}:result);
+      setData(old=>old&&old.quiz?.id&&old.quiz.id===result.quiz?.id?{...result,progress:old.progress}:result);
     } catch(error){setNotice({type:"error",title:"잠시 문제가 생겼어요",message:error.message});}
     finally{if(!silent)setLoading(false);}
   },[]);
