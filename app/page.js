@@ -45,7 +45,7 @@ export default function HomePage() {
         }catch{}
         setData(old=>old?{...old,progress:{...old.progress,solved:true}}:old);
         const reward=data.quiz.slot===3?20:10;
-        setNotice({type:"success",title:"정답이에요!",message:`수수께끼를 풀었어요. ${reward} 포인트 획득! 다음 상영 시간에 새로운 문제가 공개됩니다.`});
+        setNotice({type:"success",title:"정답이에요!",message:`퀴즈를 풀었어요. ${reward} 포인트 획득!<br />다음 상영 시간에 새로운 문제가 공개됩니다.`});
       } else if(result.status==="wrong"){
         setData(old=>old?{...old,progress:{...old.progress,wrongCount:result.wrongCount}}:old);
         setNotice({type:"wrong",title:"아쉽지만 오답이에요",message:result.wrongCount>=2?"힌트를 확인하고 다시 도전해 보세요.":"다시 한 번 생각해 보세요!",hint:result.wrongCount>=2?result.hint:""});
@@ -65,11 +65,19 @@ export default function HomePage() {
       <div className="quiz-meta"><span className="meta-label">오늘의 퀴즈 {quiz.slot}</span><span className="time-label"><Clock3 size={14}/>{quiz.timeRange}</span></div><div className="thin-rule"/>
       {quiz.image_url&&<img className="question-image" src={quiz.image_url} alt="퀴즈 참고 이미지"/>}
       <p className="question-kicker">QUESTION {String(quiz.slot).padStart(2,"0")}</p><h2 className="question-title">{quiz.question}</h2>
-      {solved?<div className="solved-panel"><Sparkles size={20}/><strong>정답을 맞혔어요!</strong><span>{quiz.slot===3?20:10} 포인트 획득!</span><span>다음 상영 시간에 새로운 문제가 공개됩니다.</span></div>:<form onSubmit={submitAnswer} className="answer-form">
+{solved ? (
+  <div className="solved-panel">
+    <Sparkles size={20}/>
+    <strong>정답을 맞혔어요!</strong>
+    <span>{quiz.slot===3?20:10} 포인트 획득!</span>
+    <span>다음 상영 시간에 새로운 문제가 공개됩니다.</span>
+  </div>
+) : (
+  <form onSubmit={submitAnswer} className="answer-form">
         {quiz.answer_type==="choice"?<div className="choice-list">{(quiz.options||[]).map((option,index)=><label className={`choice-option ${selected===option?"selected":""}`} key={`${option}-${index}`}><input type="radio" name="choice" value={option} checked={selected===option} onChange={()=>setSelected(option)}/><span className="choice-dot"/><span>{option}</span></label>)}</div>:<input className="answer-input" value={answer} onChange={e=>setAnswer(e.target.value)} placeholder="정답을 입력해 주세요." autoComplete="off"/>}
         <button className="primary-button submit-button" type="submit" disabled={sending||!(quiz.answer_type==="choice"?selected:answer.trim())}>{sending?"제출 중...":"정답 제출하기"}</button>
       </form>}
-      <div className="card-footnote"><span>오답 횟수 {data?.progress?.wrongCount??0}회</span><span>힌트는 2회 오답 후 공개</span></div>
+      <div className="card-footnote"><span>오답 횟수 {data?.progress?.wrongCount??0}회</span><span>힌트는 2 회 오답 후 공개 됩니다.</span></div>
     </article>}</section>
     <footer className="site-footer"><span>ⓒ胡桃劇場</span><Link href="/admin"><LockKeyhole size={12}/> 관리자</Link></footer>
     {notice&&<div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&setNotice(null)}><section className={`result-modal ${notice.type}`} role="dialog" aria-modal="true"><button className="modal-close" onClick={()=>setNotice(null)}>×</button><p className="eyebrow">THE RESULT</p><h2>{notice.title}</h2><p className="modal-message">{notice.message}</p>{notice.hint&&<div className="hint-box"><span>힌트</span><p>{notice.hint}</p></div>}<button className="primary-button modal-button" onClick={()=>setNotice(null)}>확인</button></section></div>}
