@@ -76,7 +76,8 @@ export default function HomePage() {
   <form onSubmit={submitAnswer} className="answer-form">
         {quiz.answer_type==="choice"?<div className="choice-list">{(quiz.options||[]).map((option,index)=><label className={`choice-option ${selected===option?"selected":""}`} key={`${option}-${index}`}><input type="radio" name="choice" value={option} checked={selected===option} onChange={()=>setSelected(option)}/><span className="choice-dot"/><span>{option}</span></label>)}</div>:<input className="answer-input" value={answer} onChange={e=>setAnswer(e.target.value)} placeholder="정답을 입력해 주세요." autoComplete="off"/>}
         <button className="primary-button submit-button" type="submit" disabled={sending||!(quiz.answer_type==="choice"?selected:answer.trim())}>{sending?"제출 중...":"정답 제출하기"}</button>
-      </form>}
+      </form>
+)}
       <div className="card-footnote"><span>오답 횟수 {data?.progress?.wrongCount??0}회</span><span>힌트는 2 회 오답 후 공개 됩니다.</span></div>
     </article>}</section>
     <footer className="site-footer"><span>ⓒ胡桃劇場</span><Link href="/admin"><LockKeyhole size={12}/> 관리자</Link></footer>
